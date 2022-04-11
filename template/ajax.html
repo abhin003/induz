@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+       <!-- Custom-Files -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/static/css/slider.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="/static/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700" rel="stylesheet">
+    <!-- //Fonts --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="">
+   
+function fetch()
+{
+    alert("do you want to continue");
+    var boxid = document.getElementById('box').value;
+    alert(boxid);
+
+
+        $.ajax({
+
+                url:'/box/',
+                data:
+                {
+                    'bid':boxid
+                },
+                datatype: 'json',
+                success: function(data)
+                {
+                    document.getElementById("nameid").value=data.bname;
+                    document.getElementById("emailid").value=data.bemail;
+                   
+
+
+                }
+
+
+            });
+ 
+}
+
+</script>
+
+    <title></title>
+</head>
+<body>
+            <section class="last-content">
+            <div class="overlay-last">
+                <div class="container text-center">
+                    <div class="last-w3pvt-inner-content row">
+
+                        <div class="col-md-6 offset-md-6">
+
+                      
+                            <form action="/box/" class="booking" method="post" >
+                                
+                                {% csrf_token %}
+                                <h3 class="mb-4">BOOKING IS AVALIABLE</h3>
+                                <div class="form-group">
+                                <select name="doc" id="box" onchange="fetch()">
+                                    {% for x in viewquery %}
+                                        <option value="{{x.id}}">{{x.first_name}}</option>
+                                    {% endfor %}
+                                    </select>
+                        
+                                    <input placeholder="lastname" id="nameid" name="spec" type="text" required="">
+                                    
+                                     
+                                     <input placeholder="email" type="text" id="emailid" name="time" required="">
+                                     <input  style="align-items: right" placeholder="date" type="date" name="date" required="">
+                                    <button class="book-appo btn mt-3">BOOK </button>
+
+                                </div>
+                            
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+</html>

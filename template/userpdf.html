@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	
+	<table width="100%">
+		<COLGROUP>
+			
+		<col span="1">
+		<tr>
+			<th>ID</th>
+			<th>FIRST NAME</th>
+			<th>LAST NAME</th>
+			<th>EMAIL</th>
+			<th>password</th>
+			
+		</tr>
+		{% for x in users %}
+		<tr>
+			<td>{{x.id}}</td>
+			<td>{{x.first_name}}</td>
+			<td>{{x.last_name}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.password}}</td>
+			<!-- <td><a href="/delete/?uid={{x.id}}">Delete</a></td>
+			<td><a href="/updatedata/?uid={{x.id}}">Update</a></td>
+			<td><a href="">download</a></td> -->
+
+			
+</tr>
+{% endfor %}
+
+	</table>
+
+</body>
+</html>

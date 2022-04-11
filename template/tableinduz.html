@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	<style>
+	table, td, th
+	{
+     /*border: 1px solid black;*/
+     border-collapse:separate;
+     padding:10px;
+     border-width: 3px;
+	}
+	
+		th
+	{
+		background-color: silver;
+	}
+	td
+	{
+		background-color: silver;
+		border color: black;
+	}
+	
+	
+	
+	
+
+</style>
+	<table width="100%">
+		<COLGROUP>
+			
+		<col span="1" style="background-color: pink">
+		<tr style="color:darkred;">
+			<th>ID</th>
+			<th>FIRST NAME</th>
+			<th>LAST NAME</th>
+			<th>EMAIL</th>
+			<th>password</th>
+			
+		</tr>
+		{% for x in viewqueryinduz %}
+		<tr>
+			<td>{{x.id}}</td>
+			<td>{{x.first_name}}</td>
+			<td>{{x.last_name}}</td>
+			<td>{{x.email}}</td>
+			<td>{{x.password}}</td>
+			<td><a href="/delete/?uid={{x.id}}">Delete</a></td>
+			<td><a href="/updatedata/?uid={{x.id}}">Update</a></td>
+			<td><a href="/downloadtc/">download</a></td>
+
+			
+</tr>
+{% endfor %}
+
+	</table>
+
+</body>
+</html>
